@@ -2,7 +2,6 @@ import socket, time
 from polinom import Polinom
 from complex import Complex
 
-import socket, time
 def strToComplex(*args):
     result = []
     for part in args:
