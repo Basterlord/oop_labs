@@ -1,6 +1,16 @@
+import socket, time, threading
+
+
 from tkinter import *
 from polinom import Polinom
 from complex import Complex
+
+
+shutdown = False
+join = False
+
+
+
 
 window = Tk()
 polinom = None
@@ -18,12 +28,15 @@ def clicked_polinom_button():
 
 
 def clicked_roots_button():
+
     global polinom
+    #c1, c2, c3 = (coefficient1.get()), (coefficient2.get()), (coefficient3.get())
     roots.configure(text=polinom.roots())
 def clicked_value_button():
     global polinom
     val = complex(value_form.get())
-    val = Complex(val.imag, val.real)
+    val = Complex(val.real, val.imag)
+    print(val)
     value.configure(text=polinom.value(val))
 #lbl.grid(column=0, row=0)
 
