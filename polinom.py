@@ -1,3 +1,7 @@
+
+
+
+
 from complex import Complex, sqrt
 class Polinom:
     def __init__(self, x, y, z):
@@ -46,7 +50,8 @@ class Polinom:
 
 
 
-
+obj = Polinom(1,2,3)
+print(obj.value(5))
 
 
 
