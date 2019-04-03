@@ -34,9 +34,7 @@ def clicked_roots_button():
     time.sleep(0.2)
     data, addr = s.recvfrom(1024)
     data = data.decode("utf-8")
-    print(data)
     data = data[2:-2]
-    print(data)
     data = data.replace('\'', '')
     roots.configure(text=data)
 
@@ -46,26 +44,18 @@ def clicked_value_button():
     c1, c2, c3 = (coefficient1.get()), (coefficient2.get()), (coefficient3.get())
     val = value_form.get()
     s.sendto(('v'+c1+','+c2+','+c3+','+val).encode("utf-8"), server)
-
-    # val = complex(value_form.get())
-    # val = Complex(val.real, val.imag)
-    #print(val)
     time.sleep(0.2)
     data, addr = s.recvfrom(1024)
     data = data.decode("utf-8")
-    print(data)
     value.configure(text=data)
 
 while shutdown == False:
 
     window = Tk()
     window.title("Polinom")
-
     window.geometry('700x200')
 
-#lbl = Label(window, text="Hello")
 
-    #lbl.grid(column=0, row=0)
     s.sendto(("[""] => join chat ").encode("utf-8"), server)
     coefficient1 = Entry(window,s.setblocking(0), width=10)
     coefficient1.grid(column=0, row=0)
@@ -80,7 +70,7 @@ while shutdown == False:
 
     roots_button = Button(window, text='roots', command=clicked_roots_button)
     roots_button.grid(row = 5, column = 0)
-    roots = Label(window, text='roots', width=45)
+    roots = Label(window, text='roots', width=70)
     roots.grid(row = 5, column=3)
 
 
